@@ -1,0 +1,203 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pts/0.8.11/pts.js">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pts/0.8.11/pts.js"></script>
+<script type="text/javascript" src="{% static 'pts.min.js' %}"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/4.7.95/css/materialdesignicons.min.css" integrity="sha256-KZNFoTq+/jQUu3YY1OnjLn605i80dhdUJKO3WHGiM6E=" crossorigin="anonymous" /> -->
+
+ <!-- HOSTED -->
+ <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,600italic,300italic,400italic,300,700italic,800italic,800' rel='stylesheet' type='text/css'>
+ <link href="fonts/mdi/css/materialdesignicons.min.css" media="all" rel="stylesheet" />
+
+ <!-- LOCAL -->
+ <link rel="stylesheet" href="style/style.css">
+ <!-- <link rel='shortcut icon' href="{%static 'favicon.ico' %}" type='image/x-icon'/ > -->
+
+ <!-- HOSTED -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/2.1.11/jquery.mixitup.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.0/jquery.waypoints.min.js"></script>
+
+ <!-- LOCAL -->
+ <script src="{%static 'scripts/pt.min.js' %}"></script>
+ <script src="{%static 'scripts/index.js' %}"></script>
+ <script src="{%static 'scripts/modal.js' %}"></script>
+
+
+
+
+<style>
+.container{
+  width: 100%;
+  padding: 0;
+}
+.bg{
+  width: 100%;
+  height: 800px;
+}
+.heading{
+  align-self: center;
+  font-size: 40px;
+  color: rgb(255, 255, 255);
+  font-family: Raleway;
+  white-space: nowrap;
+  overflow:hidden;
+}
+.my_name{
+  color: #E31B6D;
+}
+.centered {
+  position: absolute;
+  top: 44%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-bottom: 300px;
+}
+.centered_lowered {
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@media(max-width: 600px){
+  .heading{
+    font-size: 23px;
+  }
+  .centered_lowered{
+    top: 48%;
+  }
+  .section_heading{
+    font-size: 25pt;
+  }
+}
+.canvas{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  width: 100%;
+  height: 744px;
+  background: url('https://i.imgur.com/lG9ocfK.png') center center/cover;
+}
+.lb{
+  border: 1.5px solid rgb(4, 194, 201);
+  margin: 0;
+  padding: 0;
+}
+.navbar{
+  width: 100%;
+}
+.section_heading{
+  display: block;
+  text-align: center;
+  font-size: 30pt;
+  color: #444649;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  font-weight: 900;
+}
+.heading_underline{
+  display: block;
+  text-align: center;
+  border: 3px solid #444649;
+  width: 80px;
+  border-radius: 20px;
+}
+.hexagon {
+  position: relative;
+  width: 100px; 
+  height: 57.74px;
+  background-color: #64C7CC;
+  margin: 28.87px 0;
+  /* background: url('https://api.iconify.design/mdi-speedometer.svg?color=%23FFF') no-repeat center center / contain;; */
+}
+
+.hexagon:before,
+.hexagon:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+}
+
+.hexagon:before {
+  bottom: 100%;
+  border-bottom: 28.87px solid #64C7CC;
+}
+
+.hexagon:after {
+  top: 100%;
+  width: 0;
+  border-top: 28.87px solid #64C7CC;
+}
+
+</style>
+
+<img class="bg" src="{% static 'bg.png' %}" alt="">
+<!-- <div id="pt" class="canvas">
+  <canvas id="canvas" ></canvas>
+</div> -->
+
+<section id="home">
+  <div class="row">
+    <h6 class="heading centered mb-4">Hello, I'm <span class="my_name">Atif Sikander</span>.</h6>
+    <h6 class="heading centered_lowered" >I'm a full-stack web Developer.</h6>  
+  </div>
+  
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <div class="nav-link" dest="home" href="#">Home <span class="sr-only">(current)</span></div>
+      </li>
+      <li class="nav-item">
+        <div class="nav-link" dest="about" href="#">About</div>
+        </li>
+      <li class="nav-item">
+        <div class="nav-link" dest="portfolio" href="#">Portfolio</div>
+      </li>
+      <li class="nav-item">
+        <div class="nav-link" dest="contact" href="#">Contact</div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <hr class="lb">
+</section>
+<section id=about class="mt-5 p-5 d-flex">
+  <div class="col-8 offset-2">
+    <h5 class="section_heading mx-auto">ABOUT</h5>
+    <hr class="heading_underline">
+  
+  <div class="row d-flex d-md d-xs-none " style="width: 100%;">
+    <div class="hexagon">
+      <svg style="width:24px;height:24px; " viewBox="0 0 24 24">
+        <path fill="#000000" d="M12,16A3,3 0 0,1 9,13C9,11.88 9.61,10.9 10.5,10.39L20.21,4.77L14.68,14.35C14.18,15.33 13.17,16 12,16M12,3C13.81,3 15.5,3.5 16.97,4.32L14.87,5.53C14,5.19 13,5 12,5A8,8 0 0,0 4,13C4,15.21 4.89,17.21 6.34,18.65H6.35C6.74,19.04 6.74,19.67 6.35,20.06C5.96,20.45 5.32,20.45 4.93,20.07V20.07C3.12,18.26 2,15.76 2,13A10,10 0 0,1 12,3M22,13C22,15.76 20.88,18.26 19.07,20.07V20.07C18.68,20.45 18.05,20.45 17.66,20.06C17.27,19.67 17.27,19.04 17.66,18.65V18.65C19.11,17.2 20,15.21 20,13C20,12 19.81,11 19.46,10.1L20.67,8C21.5,9.5 22,11.18 22,13Z" />
+    </svg>
+    </div>
+  </div>
+  <!-- <div style="background-color: #444649;">
+  <i class=" mdi mdi-light mdi-speedometer"></i>
+  <i class="mdi mdi-light mdi-cellphone-link"></i>
+  <i class="mdi mdi-light mdi-lightbulb-outline"></i>
+  <i class="mdi mdi-light mdi-rocket"></i>
+  </div> -->
+  
+</section>
+
+<script src="{% static 'scripts/canvas.js' %}"></script>
+
+  
+{% endblock %}
