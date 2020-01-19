@@ -11,7 +11,7 @@ from home.views import home_screen_view
 urlpatterns = [
     path('', home_screen_view, name="home"),
     path('admin/', admin.site.urls),
-    
+    path('blog/', include('blog.urls', 'blog')),
 ]
 
 

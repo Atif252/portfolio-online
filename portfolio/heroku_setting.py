@@ -34,7 +34,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY','kw6z_r6j)l9y81_rmgl9mr7ryem9*8tkn*=avk
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS =  ['myportfolio252.herokuapp.com', '.portfolio252.com']
+ALLOWED_HOSTS =  ['atif02.pythonanywhere.com', '.pythonanywhere.com']
 
 
 # Application definition
@@ -47,8 +47,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home',
-    'blog',
-    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -135,9 +133,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+# MEDIA_ROOT = os.path.join(BASE_DIR, "..", "www", "media")
+
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATIC_URL = '/static/'
-MEDIA_ROOT = os.path.join(BASE_DIR, "..", "www", "media")
 MEDIA_URL = '/media/'
+STATICFILES_DIRS = os.path.join(BASE_DIR, "static_cdn"),
+STATIC_ROOT = os.path.join('/home/atif02/portfolio/static_cdn', 'static_cdn')
+MEDIA_ROOT = os.path.join('/home/atif02/portfolio/media_cdn', 'media_cdn')
+# TEMP = os.path.join(BASE_DIR, 'temp')
+
 
 CORS_REPLACE_HTTPS_REFERER      = True
 HOST_SCHEME                     = "https://"
