@@ -1,8 +1,35 @@
 <style>
-
-
-
-nav .link-wrap {
+.my-page-link{
+  color: #FFF;
+}
+.my-page-link:hover{
+  color: #E31B6D
+}
+.flex{
+  display: flex;
+  top: 0px;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+}
+nav {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  height: 50px;
+  width: 100%;
+  background: #1B242F;
+  border-bottom: 3px solid #04C2C9;
+  text-align: left;
+  z-index: 99; }
+  nav.fixed {
+    top: 0;
+    bottom: inherit;
+    left: 0;
+    position: fixed; }
+    nav.fixed.desk {
+      animation: popDown .5s; }
+  nav .link-wrap {
     max-width: 1200px;
     width: 100%;
     position: absolute;
@@ -12,6 +39,7 @@ nav .link-wrap {
     height: 0;
     transition: height .3s ease-out; }
     nav .link-wrap.visible {
+      top: 50px;
       height: 220px; }
     nav .link-wrap div {
       padding: 12px 20px;
@@ -29,69 +57,39 @@ nav .link-wrap {
     margin: auto 0;
     font-size: 30pt;
     line-height: 36pt;
-	top: 0;
-	color: #000;}
-</style>
+    top: 0;
+    color: #FFF; }
+  nav .active {
+    color: #E31B6D; }
+    @media screen and (min-width: 600px) {
+      nav .link-wrap {
+    position: initial;
+    background: none;
+    overflow: visible;
+    height: initial;
+    text-align: left; }
+    nav .link-wrap .visible {
+      height: initial; }
+    nav .link-wrap div {
+      margin: 0 20px;
+      padding: initial;
+      font-size: initial;
+      display: inline; }
+    nav .link-wrap div:first-child {
+        padding: 0; }
+    nav .mdi-menu {
+    display: none; }
+  }
+  
 
 
+  @keyframes popDown {
+  0% {
+    transform: translateY(-100px); } }
 
-
-<style>
-.navbar {
-  overflow: hidden;
-  background-color: #333;
-  position: fixed; /* Set the navbar to fixed position */
-  top: 0; /* Position the navbar at the top of the page */
-  bottom: 0;
-  width: 100%; /* Full width */
-}
-
-/* Links inside the navbar */
-.navbar a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-/* Change background on mouse-over */
-.navbar a:hover {
-  background: #ddd;
-  color: black;
-}
-
-/* Main content */
-.main {
-  margin-top: 30px; /* Add a top margin to avoid content overlay */
-}
-How To Create a Fixed Bottom Menu
-To create a fixed bottom menu, use position:fixed and bottom:0:
-
-Example
-/* The navigation bar */
-.navbar {
-  position: fixed; /* Set the navbar to fixed position */
-  bottom: 0; /* Position the navbar at the bottom of the page */
-  width: 100%; /* Full width */
-}
-
-/* Main content */
-.main {
-  margin-bottom: 30px; /* Add a bottom margin to avoid content overlay */
-}
-.navbar {
-  position: fixed; /* Set the navbar to fixed position */
-  bottom: 0; /* Position the navbar at the bottom of the page */
-  width: 100%; /* Full width */
-}
-
-/* Main content */
-.main {
-  margin-bottom: 30px; /* Add a bottom margin to avoid content overlay */
 }
 </style>
+
 
 
 <!DOCTYPE html>
@@ -104,46 +102,44 @@ Example
 	 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
 
  	{% include 'snippets/header.html' %}
- </head>
- <body>
-	<!-- <div class="flex">
-		<nav class="flex">
-			<div class="link-wrap">
-			<div class="page-link" dest="home">home</div>
-			<div class="page-link" dest="about">about</div>
-			<div class="page-link" dest="portfolio">portfolio</div>
-			<div class="page-link" dest="contact">contact</div>
-			</div>
-			<i class="mdi mdi-menu"></i>
-		</nav>
-	</div> -->
-	<div class="navbar">
-		<a href="#home">Home</a>
-		<a href="#news">News</a>
-		<a href="#contact">Contact</a>
-	  </div>
-	
+	{% include 'snippets/base_css.html' %}
 
- 	{% include 'snippets/base_css.html' %}
 
  	<style type="text/css">
  		.main{
- 			/*min-height: 100vh;*/
- 			height: 100%;
-			padding-right: 0;
+ 			min-height: 100vh;
+      font-family: Raleway;
  		}
- 	</style>
 
- 	<div class="main">
+   </style>
+
+  </head>
+  <body>
+    <section id="home" class="flex height-fix">
+      <div class="flex">
+        <nav class="flex">
+          <div class="link-wrap">
+            <a href="{% url 'home' %}"><div class="my-page-link">home</div></a>
+            <div class="active my-page-link" dest="about">blogs</div>
+            <div class="my-page-link" dest="portfolio">portfolio</div>
+            <div class="my-page-link" dest="contact">contact</div>
+          </div>
+          <i class="mdi mdi-menu"></i>
+        </nav>
+      </div>
+      </section>
+
+ 	<div class="main" style="padding-top: 100px;">
  		{% block content %}
 
  		{% endblock %}
  	</div>
 
 
-
+   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
  </body>
- <!-- <footer>
  	{% include 'snippets/footer.html' %}
- </footer> -->
  </html>

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'home',
     'blog',
     'rest_framework',
+    'taggit',
 ]
 
 MIDDLEWARE = [
@@ -119,12 +120,8 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-CLOUDINARY = {
-  'cloud_name': 'instacloud252',  
-  'api_key': '559115988375311',  
-  'api_secret': 'reUZGjIrVUuH6USmdSS0RSBK-fU',  
-}
+# DJANGO TAGGIT SETTINGS
+TAGGIT_CASE_INSENSITIVE = True 
 
 
 # Static files (CSS, JavaScript, Images)

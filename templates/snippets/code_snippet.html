@@ -1,0 +1,153 @@
+<style>
+    /* width */
+    pre::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    /* Track */
+    pre::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px grey; 
+      border-radius: 10px;
+    }
+     
+    /* Handle */
+    pre::-webkit-scrollbar-thumb {
+      background: #b1b1b1; 
+      border-radius: 10px;
+    }
+    
+    /* Handle on hover */
+    pre::-webkit-scrollbar-thumb:hover {
+      background: #b1b1b1; 
+    }
+    pre::-webkit-scrollbar-corner {
+        display: none;
+    }
+    </style>
+
+
+<style>
+
+#code-snippet{
+        margin-top: 50px;
+        /* border-radius: 3%; */
+        /* background-color: #283142; */
+        background-color: #29292e;
+        max-height: 500px;
+        display: flex;
+        margin: 16px auto;
+    }
+#code-snippet > pre{
+    color: #FFF;
+    /* color: #D0D0D0; */
+    margin-bottom: -2px;
+    width: 100%;
+}
+.pink{
+    color: rgb(197, 101, 173);
+}
+.blue{
+        color: rgb(0, 72, 226);
+    }
+.lt-blue{
+    color: rgb(2, 128, 179);
+}
+/* class names + parameters */
+.cl{
+    color: #4EC9B0;
+}
+/* comment */
+.co{
+    color: #608B4E;
+}
+/* keyword */
+.k{
+    color: #569CD6;
+}
+/* interface */
+.i{
+    color: #D197D9;
+}
+/* field */
+.f{
+    color: #9CDCFE;
+}
+/* method */
+.m{
+    color: #DCDCAA;
+}
+/* string */
+.s{
+    color: #CE9178;
+}
+</style>
+
+
+
+
+
+<!-- def list_blogs_view(request):
+    context = {}
+    blogs = BlogPost.objects.all()
+    context['blogs'] = blogs
+    return render(request, 'blog/blogs.html', context)
+
+
+def detail_blog_view(request, id):
+    context = {}
+    blog = BlogPost.objects.get(id=id)
+    context['blog'] = blog
+    return render(request, 'blog/detail_blog.html', context)
+
+def delete_blog_view(request, id):
+    context = {}
+    try:
+        blog = BlogPost.objects.get(id=id)
+        blog.delete()
+        context['response'] = 'Successfully Deleted'
+    except BlogPost.DoesNotExist:
+        context['response'] = 'No corresponding blog Found'
+    return render(request, 'blog/delete_blog.html', context)
+
+ -->
+
+
+
+
+
+
+
+
+
+<div id="code-snippet">
+    <pre>
+        <code>
+            <span class="i">from</span> django.shortcuts <span class="i">import</span> render, redirect, get_object_or_404
+            <span class="i">from</span> blog.models <span class="i">import</span> BlogPost
+
+
+            <span class="k">def</span> <span class="m">list_blogs_view</span>(<span class="f">request</span>):
+                context = {}
+                blogs = BlogPost.objects.all()
+                context[<span class="s">'blogs'</span>] = blogs
+                <span class="i">return</span> render(request, <span class="s">'blog/blogs.html'</span>, context)
+
+
+            <span class="k">def</span> <span class="m">detail_blog_view</span>(<span class="f">request</span>, <span class="f">id</span>):
+                context = {}
+                blog = BlogPost.objects.get(<span class="f">id</span>=<span class="m">id</span>)
+                context[<span class="s">'blog'</span>] = blog
+                <span class="i">return</span> render(request, <span class="s">'blog/detail_blog.html'</span>, context)
+
+            <span class="k">def</span> <span class="m">delete_blog_view</span>(<span class="f">request</span>, <span class="f">id</span>):
+                context = {}
+                <span class="i">try</span>:
+                    blog = BlogPost.objects.get(id=id)
+                    blog.delete()
+                    context[<span class="s">'response'</span>] = 'Successfully Deleted'
+                <span class="i">except</span>: BlogPost.DoesNotExist:
+                    context[<span class="s">'response'</span>] = 'No corresponding blog Found'
+                <span class="i">return</span> render(request, <span class="s">'blog/delete_blog.html'</span>, context)
+        </code>
+    </pre>
+</div>

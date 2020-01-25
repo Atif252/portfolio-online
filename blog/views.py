@@ -8,16 +8,16 @@ def list_blogs_view(request):
     return render(request, 'blog/blogs.html', context)
 
 
-def detail_blog_view(request, slug):
+def detail_blog_view(request, id):
     context = {}
-    blog = BlogPost.objects.get(slug=slug)
+    blog = BlogPost.objects.get(id=id)
     context['blog'] = blog
     return render(request, 'blog/detail_blog.html', context)
 
-def delete_blog_view(request, slug):
+def delete_blog_view(request, id):
     context = {}
     try:
-        blog = BlogPost.objects.get(slug=slug)
+        blog = BlogPost.objects.get(id=id)
         blog.delete()
         context['response'] = 'Successfully Deleted'
     except BlogPost.DoesNotExist:

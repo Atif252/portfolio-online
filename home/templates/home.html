@@ -12,7 +12,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
 
   <!-- HOSTED -->
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,600italic,300italic,400italic,300,700italic,800italic,800' rel='stylesheet' type='text/css'>
+  <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,600italic,300italic,400italic,300,700italic,800italic,800' rel='stylesheet' type='text/css'> -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
   <link href="static/fonts/mdi/css/materialdesignicons.min.css" media="all" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/4.7.95/css/materialdesignicons.min.css" integrity="sha256-KZNFoTq+/jQUu3YY1OnjLn605i80dhdUJKO3WHGiM6E=" crossorigin="anonymous" />
 
@@ -80,6 +81,7 @@
           <div class="active page-link" dest="home">home</div>
           <div class="page-link" dest="about">about</div>
           <div class="page-link" dest="portfolio">portfolio</div>
+          <div class="page-link" dest="blog">blog</div>
           <div class="page-link" dest="contact">contact</div>
         </div>
         <i class="mdi mdi-menu"></i>
@@ -100,7 +102,7 @@
         <div class="flex bullet-wrap ">
           <div class="hex-wrap waypoint" data-animation="flip-in-x">
             <div class="hexagon">
-              <i class="mdi mdi-speedometer" style="padding: 15px;"></i>
+              <i class="mdi mdi-speedometer" style="padding: 5px;"></i>
             </div>
           </div>
           <div class="waypoint" data-animation="fade-in">
@@ -112,7 +114,7 @@
         <div class="flex bullet-wrap " >
           <div class="hex-wrap waypoint" data-animation="flip-in-x" data-delay=".2s">
             <div class="hexagon">
-              <i class="mdi mdi-cellphone-link" style="padding: 15px;"></i>
+              <i class="mdi mdi-cellphone-link" style="padding: 5px;"></i>
             </div>
           </div>
           <div class="waypoint" data-animation="fade-in" data-delay=".2s">
@@ -125,7 +127,7 @@
           <div class="flex bullet-wrap " >
             <div class="hex-wrap waypoint" data-animation="flip-in-x" data-delay=".4s">
               <div class="hexagon">
-                <i class="mdi mdi-lightbulb-outline" style="padding: 15px;"></i>
+                <i class="mdi mdi-lightbulb-outline" style="padding: 5px;"></i>
               </div>
             </div>
             <div class="waypoint" data-animation="fade-in" data-delay=".4s">
@@ -137,7 +139,7 @@
           <div class="flex bullet-wrap " >
             <div class="hex-wrap waypoint" data-animation="flip-in-x" data-delay=".6s">
               <div class="hexagon">
-                <i class="mdi mdi-rocket" style="padding: 15px;"></i>
+                <i class="mdi mdi-rocket" style="padding: 5px;"></i>
               </div>
             </div>
             <div class="waypoint" data-animation="fade-in" data-delay=".6s">
@@ -337,6 +339,8 @@
         </a>
       </div>
     </div>
+    <!-- <a href="{% url 'blog:blogs_list' %}"><h2>View All</h2></a> -->
+    <h2><a href="{% url 'blog:blogs_list' %}">View All</a></h2>
   </div>
 </section>
 

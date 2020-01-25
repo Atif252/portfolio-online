@@ -1,0 +1,15 @@
+<style>
+
+</style>
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% include 'snippets/code_snippet.html' %}
+<div class="container">
+    <h2>{{blog.title}}</h2>
+    <div>{{ blog.body | safe}}</div>
+</div>
+
+{% endblock %}

@@ -1,13 +1,114 @@
+<style>
+.container{
+    width: 100%;
+    margin: auto;
+    min-height: 100%;
+}
+.blog-list{
+
+}
+.bold{
+    font-weight: 900;
+}
+.post-card-img{
+    height: 150px;
+    width: 260px;
+}
+.post-card-tag{
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 1.8px;
+    margin: 10px 0 0 0;
+}
+.post-card{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 10px;
+    margin-top: 50px;
+    /* width: 900px; */
+
+}
+.post-card-title{
+    overflow-wrap: break-word;
+}
+
+@media (max-width: 768px) and (min-width: 751px){
+    .container{
+        margin-left: 10px!important;
+        margin-right: 10px!important;
+    }
+}
+@media (min-width: 751px){
+    .post-card{
+     width: 700px;
+    }
+}
+@media (max-width: 750px){
+    .post-card-img{
+        height: 100%;
+        width: 100%;
+    }
+    .post-card{
+        display: flex;
+        flex-direction: column;
+    }
+    .post-card-title{
+        margin: 0;
+        font-size: 20px;
+    }
+
+}
+</style>
+
+<style>
+
+    #code-snippet{
+            padding-top: 40px;
+            margin-top: 50px;
+            border-radius: 2%;
+            background-color: #283142;
+            width: 700px;
+            height: 500px;
+        }
+    #code-snippet > pre{
+        color: #FFF;
+    }
+    .pink{
+        color: rgb(197, 101, 173);
+    }
+    .blue{
+        color: rgb(0, 72, 226);
+    }
+    .lt-blue{
+        color: rgb(2, 128, 179);
+    }
+    </style>
+
+
+
+
+
 {% extends 'base.html' %}
 
 {% block content %}
-
     <div class="container">
-        <h1>My Blogs</h1>
-        {% for blog in blogs %}
-            <h3>{{ blog.title }}</h3>
-            <p>{{blog.body}}</p>
-        {% endfor %}
+        <h1 class="heading">BLOGS</h1>
+
+        <div class="blog-list">
+            {% for blog in blogs %}
+            <div class="post-card" data-aos="flip-up" >
+                <img src="{{blog.image.url}}" class="post-card-img">
+                <div class="post-card-content">
+                    {% for tag in blog.tags.all %}
+                    <p class="post-card-tag">#{{tag|upper}}</p>
+                    {% endfor %}
+                    <h3 class="post-card-title bold"><a style="color: #000;" href="{% url 'blog:blog_detail' blog.id %}">{{ blog.title }}</a></h3>
+                    <p>{{blog.date_published.date}}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
     </div>
 
 {% endblock %}

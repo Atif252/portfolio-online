@@ -1,0 +1,62 @@
+<p>
+We’ll use server-side rendering to deliver an HTML response when a user or crawler hits a page URL. We’ll handle the latter requests on the client side.
+
+Why do we need it?
+
+Let me guide you to the answer.
+</p>
+
+
+<div id="code-snippet">
+    <pre>
+        <code>
+            <span class="pink">import</span> requests
+            <span class="pink">import</span> django
+            
+            def get_status(url):
+                return request.get(url)
+        </code>
+    </pre>
+</div>
+
+<p>
+How does it Work? — (4 Simple Steps)
+Create a fresh Redux Store on every request.
+Getting Started by Setting up our App
+First, open your favourite editor and shell. Create a new folder for your application. Let’s start.
+</p>
+
+
+
+<div id="code-snippet">
+    <pre>
+        <code>
+            <span class="pink">from</span> django.shortcuts <span class="pink">import</span> render, redirect, get_object_or_404
+            <span class="pink">from</span> blog.models <span class="pink">import</span> BlogPost
+
+
+            <span class="blue">def</span> list_blogs_view(<span class="pink">request</span>):
+                context = {}
+                blogs = BlogPost.objects.all()
+                context['blogs'] = blogs
+                <span class="pink">return</span> render(request, 'blog/blogs.html', context)
+
+
+            <span class="blue">def</span> detail_blog_view(<span class="pink">request</span>, <span class="pink">return</span>):
+                context = {}
+                blog = BlogPost.objects.get(id=id)
+                context['blog'] = blog
+                <span class="pink">return</span> render(request, 'blog/detail_blog.html', context)
+
+            <span class="blue">def</span> delete_blog_view(<span class="pink">request</span>, <span class="pink">id</span>):
+                context = {}
+                try:
+                    blog = BlogPost.objects.get(id=id)
+                    blog.delete()
+                    context['response'] = 'Successfully Deleted'
+                except BlogPost.DoesNotExist:
+                    context['response'] = 'No corresponding blog Found'
+                <span class="pink">return</span> render(request, 'blog/delete_blog.html', context)
+       </code>
+    </pre>
+</div>

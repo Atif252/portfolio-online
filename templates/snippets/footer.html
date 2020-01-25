@@ -1,14 +1,96 @@
-<style type="text/css">
+<style>
+
+footer {
+  background: #1B242F;
+  padding: 32px 0 27px 0;
+  position: relative;
+  min-height: 200px;
+  margin-top: 100px;
+  margin-bottom: 0;
+
+  }
+  footer .icon-wrap .icon {
+    overflow: hidden;
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.3s;
+    cursor: pointer;
+    width: 55px;
+    height: 55px;
+    position: relative;
+    text-align: center;
+    margin: 0 15px;
+    background: #262F38;
+    font-size: 18pt; }
+  footer .icon-wrap .mdi {
+    text-align: center;
+    color: #fff; }
+    footer .icon-wrap .mdi.mdi-codepen {
+      font-size: 20pt; }
+  footer .icon-wrap .icon:hover {
+    background: #04C2C9;
+    box-shadow: 0 0 0 3px rgba(4, 94, 201, 0.1);
+    transform: scale(0.9); }
+    footer .icon-wrap .icon:hover .mdi {
+      color: #fff; }
+  footer .icon-wrap .icon:hover .mdi {
+    -webkit-animation: toBottomFromTop 0.3s forwards;
+    -moz-animation: toBottomFromTop 0.3s forwards;
+    animation: toBottomFromTop 0.3s forwards; }
+  footer .footnote {
+    font-size: 10pt;
+    color: #8F9AA7;
+    margin-top: 35px;
+	opacity: 0.6;
+	margin: 0, auto; 
+	text-align: center;}
+    footer .footnote .highlight {
+      font-family: 'Open Sans';
+      color: #E31B6D; }
+</style>
+
+
+
+
+
+
+<!-- <style type="text/css">
 	.footer{
 		min-height: 100px;
 		margin-top: 20px
 	}
-</style>
+
+</style> -->
 
 <!-- Footer-->
-<div class="container">
-
-</div>
+	<footer>
+	
+		<div class="icon-wrap flex row">
+		  <a href="https://github.com/Atif252">
+			<div class="flex icon" id="icon-4">
+			  <i class="mdi mdi-github-circle"></i>
+			</div>
+		  </a>
+		  <a href="https://www.linkedin.com/in/atifsikander252/">
+			<div class="flex icon" id="icon-2">
+			  <i class="mdi mdi-linkedin"></i>
+			</div>
+		  </a>
+		  <a href="https://twitter.com/Atif_252">
+			<div class="flex icon" id="icon-4">
+			  <i class="mdi mdi-twitter"></i>
+			</div>
+		  </a>
+		  <a href="https://www.instagram.com/atif.252/">
+			<div class="flex icon" id="icon-4">
+			  <i class="mdi mdi-instagram"></i>
+			</div>
+		  </a>
+	
+	
+		</div>
+		<div class="info-box">
+		  <div class="footnote">ATIF SIKANDER &copy;<span class="highlight" id="year">2020</span></div>
+		</div>
+	  </footer>
 <!-- End Footer-->
 
 
